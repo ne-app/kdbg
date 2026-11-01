@@ -19,7 +19,8 @@ inline bool INavHintsDelegate::Load(const std::string& path) noexcept {
   m_images.clear();
   m_valid = false;
 
-  xmlDoc* doc = xmlReadFile(path.c_str(), nullptr, XML_PARSE_NOERROR | XML_PARSE_NOWARNING);
+  xmlDoc* doc = xmlReadFile(path.c_str(), 
+      nullptr, XML_PARSE_NOERROR | XML_PARSE_NOWARNING);
   if (!doc) return false;
 
   xmlNode* root = xmlDocGetRootElement(doc);
@@ -89,3 +90,5 @@ bool INavHintsDelegate::IsValid() const noexcept {
 }
 
 }  // namespace KDbg
+
+// EOF
